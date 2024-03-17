@@ -13,11 +13,19 @@ mongoose.connect('mongodb+srv://vaibhavshrotriyas:Vaibhav2876@cluster0.mkuk0qb.m
 
 // seedDB();
 
+var whitelist = ['http://localhost:5173', 'https://vocalise.netlify.app']
+var corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
+
 app.use(
-  cors({
-    origin: ["http://localhost:5173"],
-    origin: ["https://vocalise.netlify.app"],
-  })
+  cors(corsOptions)
 );
 
 app.use(express.urlencoded({extended:true}));
