@@ -12,7 +12,6 @@ router.post('/register', async(req,res)=>{
 router.post('/login',passport.authenticate('local',{failureRedirect:'/login'}),
 function(req,res){
     console.log("");
-    //console.log(req.user , "new");//req.user humko sari attrinutes dega db ka
     res.redirect('/choose');
 });
 
