@@ -16,6 +16,7 @@ mongoose.connect('mongodb+srv://vaibhavshrotriyas:Vaibhav2876@cluster0.mkuk0qb.m
 app.use(
   cors({
     origin: ["http://localhost:5173"],
+    origin: ["https://vocalise.netlify.app"],
   })
 );
 
