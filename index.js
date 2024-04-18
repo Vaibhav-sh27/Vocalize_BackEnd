@@ -6,11 +6,11 @@ const todoRoutes = require('./api/todoRoutes');
 const userRoutes = require('./api/userRoutes');
 const seedDB = require('./seed');
 
-mongoose.connect('mongodb://127.0.0.1:27017/Todo')
-  .then(() => console.log('DB Connected!'));
-
-// mongoose.connect('mongodb+srv://vaibhavshrotriyas:Vaibhav2876@cluster0.mkuk0qb.mongodb.net/TodoDB?retryWrites=true&w=majority&appName=Cluster0')
+// mongoose.connect('mongodb://127.0.0.1:27017/Todo')
 //   .then(() => console.log('DB Connected!'));
+
+mongoose.connect('mongodb+srv://vaibhavshrotriyas:Vaibhav2876@cluster0.mkuk0qb.mongodb.net/TodoDB?retryWrites=true&w=majority&appName=Cluster0')
+  .then(() => console.log('DB Connected!'));
 
 // seedDB();
 
