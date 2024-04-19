@@ -15,7 +15,7 @@ router.post("/register", async (req, res) => {
     } else {
       let hashedPass = await bcrypt.hash(user.password, 10); 
       let newUser = await User.create({
-        userame: user.userame,
+        username: user.username,
         name: user.name,
         email: user.email,
         password: hashedPass,
@@ -24,12 +24,12 @@ router.post("/register", async (req, res) => {
       res.status(200).send("User created successfully");
     }
   });
-
+ 
 router.post("/login", async (req, res) => {
     const userdata =req.body;
     let userInfo;
     try {
-      userInfo = await User.findOne({email: userdata.username});
+      userInfo = await User.findOne({email: userdata.email});
     } catch (error) {
       res.status(500).send("Somthing went Wrong While Login");
     } 
@@ -50,7 +50,7 @@ router.post("/login", async (req, res) => {
       res.status(200).send({
         data: {
           token: token,
-          userdata: userdata,
+          userdata: userInfo,
         },
         msg: "Token Genrated"
       })
