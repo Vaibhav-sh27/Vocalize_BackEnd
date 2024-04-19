@@ -21,6 +21,12 @@ let userSchema=new mongoose.Schema({
         max: 30,
         required: true,
     },
+    todos:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:'todo'
+        }
+    ]
 });
 
 
