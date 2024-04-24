@@ -10,9 +10,15 @@ let todoSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
-    Schedule_date: {
-        type: Date
-    }
+    dueDate: {
+        type: Date,
+        default: new Date(),
+    },
+    owner: {
+        type: String,
+        required: true,
+        trim:true,
+   }
 })
 
 let Todo = mongoose.model("todo", todoSchema);

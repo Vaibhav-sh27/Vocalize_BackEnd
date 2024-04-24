@@ -21,6 +21,10 @@ let userSchema=new mongoose.Schema({
         max: 30,
         required: true,
     },
+    isSub: {
+        type: Boolean,
+        default: false
+    },
     todos:[
         {
             type:mongoose.Schema.Types.ObjectId,
