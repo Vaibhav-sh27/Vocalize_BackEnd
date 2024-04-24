@@ -26,9 +26,9 @@ router.get('/todo/:userId/todos', async (req, res)=>{
 router.post('/todo/:userId/addtodo', async (req, res)=>{
     try {
         let {userId} = req.params;
-        let {task, isComp, owner} = req.body;
+        let {task, isComp, owner, dueDate} = req.body;
         let currUser = await user.findById(userId);
-        const todoData = new todo({task, isComp, owner});
+        const todoData = new todo({task, isComp, owner, dueDate});
         currUser.todos.push(todoData);
         await todoData.save();
         await currUser.save();
