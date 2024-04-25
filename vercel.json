@@ -10,7 +10,7 @@
         "dest": "/"
       }
     ],
-    "crons": [
+    "crons": [ 
       {
           "path": "/cron",
           "schedule": "* * * * *"
