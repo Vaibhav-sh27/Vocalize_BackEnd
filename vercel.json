@@ -9,11 +9,5 @@
         "src": "/.*",
         "dest": "/"
       }
-    ],
-    "crons": [ 
-      {
-          "path": "/cron",
-          "schedule": "* * * * *"
-      }
     ]
   }
