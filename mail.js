@@ -24,7 +24,7 @@ async function checkTaskCompletionTime() {
         const completionTime = new Date(task.dueDate).toLocaleString();
 
         if ((currentTime >= completionTime) && !task.isComp) {
-            sendEmail(task);
+            await sendEmail(task);
             let time= new Date();
             await todo.findByIdAndUpdate(task._id, {dueDate: new Date(time.getTime() + 30*60000)});
         }
@@ -32,7 +32,7 @@ async function checkTaskCompletionTime() {
 }
 
 
- function sendEmail(task) {
+ async function sendEmail(task) {
 
     const mailOptions = {
         from: 'vaibhav.sharma2_cs21@gla.ac.in',
@@ -49,7 +49,7 @@ async function checkTaskCompletionTime() {
     //     text: `The task  is due for completion at jj.`
     // };
 
-    transporter.sendMail(mailOptions, (error, info) => {
+    await transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
             console.error('Error sending email:', error);
         } else {
