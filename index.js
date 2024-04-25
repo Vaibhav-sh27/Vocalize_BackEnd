@@ -6,8 +6,9 @@ const todoRoutes = require('./api/todoRoutes');
 const userRoutes = require('./api/userRoutes');
 const mailRoutes = require('./api/mailRoutes');
 const seedDB = require('./seed');
+const cron = require('./controllers/cron');
 require('dotenv').config()
-require('./mail');
+//require('./mail');
 
 
 mongoose.connect(process.env.mongoURI)
@@ -38,6 +39,7 @@ app.use(express.json())
 app.use(todoRoutes);
 app.use(userRoutes);
 app.use(mailRoutes);
+app.use('/cron', cron);
 
 app.get('/' , (req , res)=>{
     res.status(200).json({msg: "Welcome to Vocalize Backend"})
