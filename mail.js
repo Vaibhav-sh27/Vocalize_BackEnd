@@ -49,14 +49,15 @@ async function checkTaskCompletionTime() {
     //     subject: 'Task Completion Reminder',
     //     text: `The task  is due for completion at jj.`
     // };
-
-    await transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-            console.error('Error sending email:', error);
-        } else {
-            console.log('Email sent:', info.response);
-        }
-    });
+    await new Promise((resolve, reject) => {
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                console.error('Error sending email:', error);
+            } else {
+                console.log('Email sent:', info.response);
+            }
+        });
+    })
 }
 
 console.log("Mail Service Started");
