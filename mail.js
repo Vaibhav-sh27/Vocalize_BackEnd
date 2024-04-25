@@ -53,7 +53,7 @@ async function checkTaskCompletionTime() {
         transporter.sendMail(mailOptions, (error, info) => {
             if (error) {
                 console.error('Error sending email:', error);
-                reject(err);
+                reject(error);
             } else {
                 console.log('Email sent:', info.response);
                 resolve(info);
