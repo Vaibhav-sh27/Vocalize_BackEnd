@@ -8,7 +8,7 @@ const mailRoutes = require('./api/mailRoutes');
 const seedDB = require('./seed');
 const cron = require('./controllers/cron');
 require('dotenv').config()
-//require('./mail');
+require('./mail');
 
 
 mongoose.connect(process.env.mongoURI)
