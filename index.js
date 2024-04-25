@@ -4,6 +4,7 @@ const app= express();
 const mongoose = require('mongoose');
 const todoRoutes = require('./api/todoRoutes');
 const userRoutes = require('./api/userRoutes');
+const mailRoutes = require('./api/mailRoutes');
 const seedDB = require('./seed');
 require('dotenv').config()
 require('./mail');
@@ -28,14 +29,15 @@ var corsOptions = {
   }
 }
 
-app.use(
-  cors(corsOptions)
-);
+// app.use(
+//   cors(corsOptions)
+// );
 
 app.use(express.urlencoded({extended:true}));
 app.use(express.json())
 app.use(todoRoutes);
 app.use(userRoutes);
+app.use(mailRoutes);
 
 app.get('/' , (req , res)=>{
     res.status(200).json({msg: "Welcome to Vocalize Backend"})
