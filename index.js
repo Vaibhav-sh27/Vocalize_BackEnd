@@ -6,7 +6,7 @@ const todoRoutes = require('./api/todoRoutes');
 const userRoutes = require('./api/userRoutes');
 const seedDB = require('./seed');
 require('dotenv').config()
-//require('./mail');
+require('./mail');
 
 
 mongoose.connect(process.env.mongoURI)

@@ -32,19 +32,20 @@ async function checkTaskCompletionTime() {
 
  function sendEmail(task) {
 
-    // const mailOptions = {
-    //     from: 'vaibhav.sharma2_cs21@gla.ac.in',
-    //     to: task.owner,
-    //     subject: 'Task Completion Reminder',
-    //     text: `The task "${task.task}" is due for completion .`
-    // };
-
     const mailOptions = {
         from: 'vaibhav.sharma2_cs21@gla.ac.in',
-        to: "vaibhavshrotriyas@gmail.com",
+        to: task.owner,
         subject: 'Task Completion Reminder',
-        text: `The task  is due for completion at jj.`
+        html: `<h1>The task "${task.task}" is due for completion.</h1> <h2> Please mark the task as Completed or else you will get this reminder in every 30 minutes.</h2>
+                <h3>- Team Voclise.</h3>`
     };
+
+    // const mailOptions = {
+    //     from: 'vaibhav.sharma2_cs21@gla.ac.in',
+    //     to: "vaibhavshrotriyas@gmail.com",
+    //     subject: 'Task Completion Reminder',
+    //     text: `The task  is due for completion at jj.`
+    // };
 
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
@@ -55,7 +56,7 @@ async function checkTaskCompletionTime() {
     });
 }
 
-console.log(process.env.user);
+console.log("Mail Service Started");
 cron.schedule('* * * * *', () => {
     
     checkTaskCompletionTime();
