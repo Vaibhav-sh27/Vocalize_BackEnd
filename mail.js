@@ -1,10 +1,11 @@
-let nodemailer = require('nodemailer');
-let cron = require('node-cron');
+const nodemailer = require('nodemailer');
+const nodeSchedule = require('node-schedule');
+// let cron = require('node-cron');
 const todo = require('./models/Todo');
 require('dotenv').config()
 
 
-  let transporter = nodemailer.createTransport({
+  let transporter = nodemailer.createTransport({ 
         host:'smtp.gmail.com',
         service: 'gmail',
         secure: true,
@@ -63,8 +64,7 @@ async function checkTaskCompletionTime() {
 }
 
 console.log("Mail Service Started");
-cron.schedule('* * * * *', () => {
-    
+nodeSchedule.scheduleJob('* * * * *', () => {
     checkTaskCompletionTime();
 });
 
