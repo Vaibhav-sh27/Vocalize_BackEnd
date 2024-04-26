@@ -57,4 +57,19 @@ router.post("/login", async (req, res) => {
     }
 });
 
+router.patch('/user/update/:id', async (req, res)=>{
+  try {
+    let {id} = req.params;
+    console.log(id);
+    await User.findByIdAndUpdate(id, {isSub: true});
+    let upt= await User.findById(id);
+    console.log(upt);
+    res.status(200).json(upt);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({msg: "Something went wrong!"});
+  }
+  
+})
+
 module.exports=router;

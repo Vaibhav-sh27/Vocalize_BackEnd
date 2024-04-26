@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const todoRoutes = require('./api/todoRoutes');
 const userRoutes = require('./api/userRoutes');
 const mailRoutes = require('./api/mailRoutes');
+const paymentRoutes = require('./api/paymentRoutes');
 const seedDB = require('./seed');
 const cron = require('./controllers/cron');
 require('dotenv').config()
@@ -39,6 +40,7 @@ app.use(express.json())
 app.use(todoRoutes);
 app.use(userRoutes);
 app.use(mailRoutes);
+app.use(paymentRoutes)
 app.use('/cron', cron);
 
 app.get('/' , (req , res)=>{
