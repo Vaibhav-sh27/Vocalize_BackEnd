@@ -103,7 +103,7 @@ router.post('/mail/welcome',async (req, res)=>{
           <li><span class="icon">&#10004;</span> Add tasks with your voice: Simply say "Add task" followed by the details, and Vocalize will handle it!</li>
           <li><span class="icon">&#9998;</span> Edit tasks on the fly: Need to change a deadline or adjust the description? Use your voice to modify them effortlessly!</li>
           <li><span class="icon">&#10003;</span> Mark tasks complete with a voice command: Finished a task? Say "Mark complete" and Vocalize will update its status.</li>
-          <li><span class="icon">&#128101;</span> Optional User Authentication: Create a user account for a personalized experience and access your tasks across devices.</li>
+          <li><span class="icon">&#128101;</span> User Authentication: Create a user account for a personalized experience and access your tasks across devices.</li>
         </ul>
         <p>Get ready to transform your to-do list management! Open the app and speak your first command to get started.</p>
         <a href="https://vocalise.netlify.app" class="cta">Get Started with Vocalize</a>
