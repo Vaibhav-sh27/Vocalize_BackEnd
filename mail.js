@@ -39,9 +39,83 @@ async function checkTaskCompletionTime() {
     const mailOptions = {
         from: 'vaibhav.sharma2_cs21@gla.ac.in',
         to: task.owner,
-        subject: 'Task Completion Reminder',
-        html: `<h1>The task "${task.task}" is due for completion.</h1> <h2> Please mark the task as Completed or else you will get this reminder in every 30 minutes.</h2>
-                <h3>- Team Voclise.</h3>`
+        subject: `Vocalize: Gentle Reminder - You've Got Tasks Pending!`,
+        html: `<!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Vocalize: Gentle Reminder - You've Got Tasks Pending!</title>
+          <style>
+            body {
+              font-family: Arial, sans-serif;
+              margin: 0;
+              padding: 0;
+              background-color: #f5f5f5;
+            }
+            .container {
+              padding: 20px;
+              max-width: 600px;
+              margin: 0 auto;
+              background-color: #fff;
+              border-radius: 5px;
+              box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+            h1 {
+              font-size: 20px;
+              margin-bottom: 10px;
+              color: #333;
+            }
+            p {
+              line-height: 1.5;
+              color: #666;
+              margin-bottom: 15px;
+            }
+            .tasks {
+              list-style: none;
+              padding: 0;
+              margin: 10px auto;
+            }
+            .tasks li {
+              margin-bottom: 5px;
+              display: flex;
+              align-items: center;
+            }
+            .tasks li span.icon {
+              display: inline-block;
+              margin-right: 10px;
+              font-size: 18px;
+              color: #ff9900;
+            }
+            .cta {
+              background-color: #007bff;
+              color: #fff;
+              text-align: center;
+              padding: 10px 20px;
+              border-radius: 5px;
+              display: block;
+              margin-top: 20px;
+            }
+            .cta a {
+              color: #fff;
+            }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <h1>Hey There!, Looks like you have some pending tasks on Vocalize!</h1>
+            <p>Just a friendly reminder that you have a few tasks waiting for your attention. Take a quick look and conquer them today!</p>
+            <ul class="tasks">
+              <li><span class="icon">&#9875;</span> <h3>Task : ${task.task}</h3></li>
+              </ul>
+            <p>Remember, you can always use your voice to manage your tasks with Vocalize. It's fast, convenient, and keeps you on top of your schedule.</p>
+            <a href="https://vocalise.netlify.app" class="cta">Open Vocalize Now</a>
+            <p>We hope this reminder helps! If you don't want to receive these notifications in every 30 Minutes, you can easily mark your task as compleated within the app.</p>
+            <p>Happy vocalizing!</p>
+            <p>The Vocalize Team</p>
+          </div>
+        </body>
+        </html>`
     };
 
     // const mailOptions = {
